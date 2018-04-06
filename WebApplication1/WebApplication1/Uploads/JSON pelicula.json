@@ -1,0 +1,50 @@
+{
+  "Pelicula1": {
+    "Nombre": "Fast and Furious",
+    "Tipo": "Pelicula",
+    "Año": 2001,
+    "Genero": "Acción"
+  },
+  "Pelicula2": {
+    "Nombre": "An Inconvenient Truth",
+    "Tipo": "Documental",
+    "Año": 2006,
+    "Genero": "Medio Ambiente"
+  },
+  "Pelicula3": {
+    "Nombre": "Avengers: Infinity War",
+    "Tipo": "Pelicula",
+    "Año": 2018,
+    "Genero": "Accion"
+  },
+  "Pelicula4": {
+    "Nombre": "How I met your Mother",
+    "Tipo": "Show",
+    "Año": 2005,
+    "Genero": "Sitcom"
+  },
+  "Pelicula5": {
+    "Nombre": "Fast and Furious 2",
+    "Tipo": "Pelicula",
+    "Año": 2005,
+    "Genero": "Acción"
+  },
+  "Pelicula6": {
+    "Nombre": "An Inconvenient Truth: The Return",
+    "Tipo": "Documental",
+    "Año": 2010,
+    "Genero": "Medio Ambiente"
+  },
+  "Pelicula7": {
+    "Nombre": "Avengers: Infinity War Part 2",
+    "Tipo": "Pelicula",
+    "Año": 2018,
+    "Genero": "Accion"
+  },
+  "Pelicula8": {
+    "Nombre": "How I met your Mother 2",
+    "Tipo": "Show",
+    "Año": 2012,
+    "Genero": "Sitcom"
+  }
+}
