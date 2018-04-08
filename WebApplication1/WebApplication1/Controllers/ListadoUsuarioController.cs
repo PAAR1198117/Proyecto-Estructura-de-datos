@@ -37,7 +37,7 @@ namespace WebApplication1.Controllers
             {
                 pelicula.Add(item);
             }
-            pelicula.OrderBy(x => x.Año);
+            pelicula.OrderBy(x => x.Nombre);
 
             return View(pelicula);
         }
@@ -52,7 +52,7 @@ namespace WebApplication1.Controllers
                     pelicula.Add(item);
                 }
             }
-            pelicula.OrderBy(x => x.Año);
+            pelicula.OrderBy(x => x.Nombre);
 
             return View(pelicula);
         }

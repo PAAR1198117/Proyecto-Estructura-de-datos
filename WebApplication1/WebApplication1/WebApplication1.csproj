@@ -167,6 +167,10 @@
     <Content Include="Views\Listado\Edit.cshtml" />
     <Content Include="Views\Listado\Delete.cshtml" />
     <Content Include="Views\Listado\Importar.cshtml" />
+    <Content Include="Views\ListadoUsuario\ListaFecha.cshtml" />
+    <Content Include="Views\ListadoUsuario\ListaNombre.cshtml" />
+    <Content Include="Views\ListadoUsuario\ListaTipo.cshtml" />
+    <Content Include="Views\ListadoUsuario\Menu.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -176,7 +180,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\ListadoUsuario\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
