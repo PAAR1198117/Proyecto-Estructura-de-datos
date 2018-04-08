@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApplication1.Clases;
+using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
@@ -15,76 +17,64 @@ namespace WebApplication1.Controllers
         }
 
         // GET: ListadoUsuario/Details/5
-        public ActionResult ListaFecha(int id)
+        public ActionResult ListaFecha()
         {
 
-            return View();
-        }
-
-        // GET: ListadoUsuario/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: ListadoUsuario/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
+            List<Pelicula> pelicula = new List<Pelicula>();
+            foreach (var item in Data.Instance.Pelicula)
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                pelicula.Add(item);
             }
-            catch
+            pelicula.OrderBy(x => x.Año);
+
+            return View(pelicula);
+        }
+        public ActionResult ListaNombre()
+        {
+
+            List<Pelicula> pelicula = new List<Pelicula>();
+            foreach (var item in Data.Instance.Pelicula)
             {
+                pelicula.Add(item);
+            }
+            pelicula.OrderBy(x => x.Año);
+
+            return View(pelicula);
+        }
+        public ActionResult ListaTipo(string tipo)
+        {
+
+            List<Pelicula> pelicula = new List<Pelicula>();
+            foreach (var item in Data.Instance.Pelicula)
+            {
+                if (tipo == item.Tipo)
+                {
+                    pelicula.Add(item);
+                }
+            }
+            pelicula.OrderBy(x => x.Año);
+
+            return View(pelicula);
+        }
+
+        public ActionResult Menu(int ID)
+        {
+            if (ID == 1)
+            {
+                //vista decha
                 return View();
             }
-        }
-
-        // GET: ListadoUsuario/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: ListadoUsuario/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
+            if (ID == 2)
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
+                //vista nombre
                 return View();
             }
-        }
-
-        // GET: ListadoUsuario/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: ListadoUsuario/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
+            if (ID == 3)
             {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
+                //vista tipo
                 return View();
             }
+            return View();
         }
     }
 }
