@@ -21,7 +21,7 @@ namespace WebApplication1.Controllers
         {
 
             List<Pelicula> pelicula = new List<Pelicula>();
-            foreach (var item in Data.Instance.Pelicula)
+            foreach (var item in Data1.Instance.Pelicula)
             {
                 pelicula.Add(item);
             }
@@ -33,7 +33,7 @@ namespace WebApplication1.Controllers
         {
 
             List<Pelicula> pelicula = new List<Pelicula>();
-            foreach (var item in Data.Instance.Pelicula)
+            foreach (var item in Data1.Instance.Pelicula)
             {
                 pelicula.Add(item);
             }
@@ -45,7 +45,7 @@ namespace WebApplication1.Controllers
         {
 
             List<Pelicula> pelicula = new List<Pelicula>();
-            foreach (var item in Data.Instance.Pelicula)
+            foreach (var item in Data1.Instance.Pelicula)
             {
                 if (tipo == item.Tipo)
                 {

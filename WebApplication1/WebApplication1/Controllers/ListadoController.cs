@@ -16,13 +16,13 @@ namespace WebApplication1.Controllers
         public ActionResult Index()
         {
             //tratar hacer log in aqui
-            return View(Data.Instance.Pelicula);
+            return View(Data1.Instance.Pelicula);
         }
 
         // GET: Listado/Details/5
         public ActionResult Details(string nombre)
         {
-            var model = Data.Instance.Pelicula.FirstOrDefault(x => x.Nombre == nombre);
+            var model = Data1.Instance.Pelicula.FirstOrDefault(x => x.Nombre == nombre);
             return View(model);
         }
 
@@ -47,7 +47,7 @@ namespace WebApplication1.Controllers
                     Genero = collection["genero"],
                     Año = Convert.ToInt16(collection["lanzamiento"])
                 };
-                Data.Instance.Pelicula.Add(model);
+                Data1.Instance.Pelicula.Add(model);
                 return RedirectToAction("Importar");
             }
             catch
@@ -59,7 +59,7 @@ namespace WebApplication1.Controllers
         // GET: Listado/Edit/5
         public ActionResult Edit(string nombre)
         {
-            var model = Data.Instance.Pelicula.FirstOrDefault(x => x.Nombre == nombre);
+            var model = Data1.Instance.Pelicula.FirstOrDefault(x => x.Nombre == nombre);
             return View(model);
         }
 
@@ -77,8 +77,8 @@ namespace WebApplication1.Controllers
                     Genero = collection["genero"],
                     Año = Convert.ToInt16(collection["lanzamiento"])
                 };
-                Data.Instance.Pelicula.Remove(Data.Instance.Pelicula.First(x => x.Nombre == nombre));
-                Data.Instance.Pelicula.Add(model);
+                Data1.Instance.Pelicula.Remove(Data1.Instance.Pelicula.First(x => x.Nombre == nombre));
+                Data1.Instance.Pelicula.Add(model);
                 return RedirectToAction("Importar");
             }
             catch
@@ -90,7 +90,7 @@ namespace WebApplication1.Controllers
         // GET: Listado/Delete/5
         public ActionResult Delete(string nombre)
         {
-            var model = Data.Instance.Pelicula.FirstOrDefault(x => x.Nombre == nombre);
+            var model = Data1.Instance.Pelicula.FirstOrDefault(x => x.Nombre == nombre);
             return View();
         }
 
@@ -102,7 +102,7 @@ namespace WebApplication1.Controllers
             {
                 // TODO: Add delete logic here
 
-                Data.Instance.Pelicula.Remove(Data.Instance.Pelicula.First(x => x.Nombre == nombre));
+                Data1.Instance.Pelicula.Remove(Data1.Instance.Pelicula.First(x => x.Nombre == nombre));
                 //datos del delete
                 var model = new Pelicula
                 {
@@ -122,7 +122,7 @@ namespace WebApplication1.Controllers
 
         public ActionResult Importar()
         {
-            return View(Data.Instance.Pelicula);
+            return View(Data1.Instance.Pelicula);
         }
 
         [HttpPost]
@@ -145,7 +145,7 @@ namespace WebApplication1.Controllers
 
                 foreach (var item in pelicula)
                 {
-                    Data.Instance.Pelicula.Add(new Pelicula
+                    Data1.Instance.Pelicula.Add(new Pelicula
                     {
                         Nombre = item.Value.Nombre,
                         Año = item.Value.Año,
