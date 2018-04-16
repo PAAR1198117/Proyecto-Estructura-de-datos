@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Login_Test.Models.Pelicula>
+
+@{
+    ViewBag.Title = "Menu";
+}
+
+<h2>Menu</h2>
+
+<p>
+    @using (Html.BeginForm("Log_In", "Log", FormMethod.Post))
+    {
+        <input type="submit" value="Log out" />
+    }
+    @Html.ActionLink("ListaTipo", "ListaTipo")
+    @Html.ActionLink("ListaNombre", "ListaNombre")
+    @Html.ActionLink("ListaFecha", "ListaFecha")
+</p>

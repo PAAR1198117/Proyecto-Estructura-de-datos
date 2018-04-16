@@ -12,7 +12,7 @@ namespace Login_Test.Models
     public partial class Usuarios
     {
         [JsonProperty("Edad")]
-        public long Edad { get; set; }
+        public int Edad { get; set; }
 
         [JsonProperty("Nombre")]
         public string Nombre { get; set; }

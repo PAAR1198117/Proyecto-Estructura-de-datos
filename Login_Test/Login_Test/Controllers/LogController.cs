@@ -66,16 +66,16 @@ namespace Login_Test.Controllers
             if (collection["Username"] == "admin" && collection["Password"] =="admin")
             {
                 // Retornar la vista de controlador admin
-                return View();
+                return RedirectToAction("Importar", "Listado");
             }
 
-            else
+            else if (collection["Username"] == "" && collection["Password"] == "")
             {
                 foreach (var item in Data.Instance.usuarios)
                 {
-                    if (item.Username == collection["Username"] && item.Password == collection["Password"])
+                    if (item.Username == collection["Username"] && item.Password == collection["Password"] && item.Edad != 0)
                     {
-                        return View();//menu guaflix para usuarios
+                        return RedirectToAction("Menu", "ListadoUsuario");//menu guaflix para usuarios
                     }
                 }
             }

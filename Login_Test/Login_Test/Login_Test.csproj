@@ -145,11 +145,15 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Clases\Data.cs" />
+    <Compile Include="Clases\Data1.cs" />
     <Compile Include="Clases\registros.cs" />
+    <Compile Include="Controllers\ListadoController.cs" />
+    <Compile Include="Controllers\ListadoUsuarioController.cs" />
     <Compile Include="Controllers\LogController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Pelicula.cs" />
     <Compile Include="Models\Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -164,6 +168,15 @@
     <Content Include="Views\Log\Log_In.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Log\Sign_In.cshtml" />
+    <Content Include="Views\Listado\Create.cshtml" />
+    <Content Include="Views\Listado\Edit.cshtml" />
+    <Content Include="Views\Listado\Delete.cshtml" />
+    <Content Include="Views\Listado\Importar.cshtml" />
+    <Content Include="Views\Listado\Details.cshtml" />
+    <Content Include="Views\ListadoUsuario\ListaFecha.cshtml" />
+    <Content Include="Views\ListadoUsuario\ListaNombre.cshtml" />
+    <Content Include="Views\ListadoUsuario\ListaTipo.cshtml" />
+    <Content Include="Views\ListadoUsuario\Menu.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
