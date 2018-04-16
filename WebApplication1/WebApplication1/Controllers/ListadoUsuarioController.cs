@@ -57,23 +57,8 @@ namespace WebApplication1.Controllers
             return View(pelicula);
         }
 
-        public ActionResult Menu(int ID)
+        public ActionResult Menu()
         {
-            if (ID == 1)
-            {
-                //vista decha
-                return View();
-            }
-            if (ID == 2)
-            {
-                //vista nombre
-                return View();
-            }
-            if (ID == 3)
-            {
-                //vista tipo
-                return View();
-            }
             return View();
         }
     }

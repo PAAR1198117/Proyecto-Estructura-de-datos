@@ -1,4 +1,4 @@
-﻿@model WebApplication1.Models.Pelicula
+﻿@model IEnumerable<WebApplication1.Models.Pelicula>
 
 @{
     ViewBag.Title = "Menu";
@@ -6,18 +6,13 @@
 
 <h2>Menu</h2>
 
+<p>
+    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("ListaTipo", "ListaTipo")
+    @Html.ActionLink("ListaNombre", "ListaNombre")
+    @Html.ActionLink("ListaFecha", "ListaFecha")
+</p>
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
 }
 
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
