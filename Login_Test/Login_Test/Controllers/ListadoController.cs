@@ -125,7 +125,7 @@ namespace Login_Test.Controllers
         }
 
         [HttpPost]
-        public ActionResult Importar(HttpPostedFileBase postedFile, int id)
+        public ActionResult Importar(HttpPostedFileBase postedFile)
         {
             string filePath = string.Empty;
             if (postedFile != null)
@@ -152,11 +152,7 @@ namespace Login_Test.Controllers
                         Tipo = item.Value.Tipo
                     });
                 }
- 
-            }
-            if (id == 1)
-            {
-                return RedirectToAction("Log_In", "Log");
+
             }
             return RedirectToAction("Importar");
         }

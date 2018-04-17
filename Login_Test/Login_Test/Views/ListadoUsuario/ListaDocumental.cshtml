@@ -1,24 +1,13 @@
 ﻿@model IEnumerable<Login_Test.Models.Pelicula>
 
 @{
-    ViewBag.Title = "Importar";
+    ViewBag.Title = "ListaDocumental";
 }
 
-<h2>Importar</h2>
+<h2>ListaDocumental</h2>
 
 <p>
-    @using (Html.BeginForm("Importar", "Listado", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-        <input type="file" name="postedFile" />
-        <input type="submit" value="Importar" />
-    }
-<p>
-</p>
-    @using (Html.BeginForm("Log_In", "Log", FormMethod.Post))
-    {
-        <input type="submit" value="Log out" />
-    }
-<p>
+    @Html.ActionLink("Menu", "Menu")
 </p>
 <table class="table">
     <tr>
@@ -50,6 +39,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Genero)
+        </td>
+        <td>
+            @Html.ActionLink("Add wachlist", "ListaWachlist", new { id = item.Nombre })
         </td>
     </tr>
 }

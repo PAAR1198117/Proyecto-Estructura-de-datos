@@ -69,16 +69,14 @@ namespace Login_Test.Controllers
                 return RedirectToAction("Importar", "Listado");
             }
 
-            else if (collection["Username"] == "" && collection["Password"] == "")
+            foreach (var item in Data.Instance.usuarios)
             {
-                foreach (var item in Data.Instance.usuarios)
+                if (item.Username == collection["Username"] && item.Password == collection["Password"] && item.Edad != 0)
                 {
-                    if (item.Username == collection["Username"] && item.Password == collection["Password"] && item.Edad != 0)
-                    {
-                        return RedirectToAction("Menu", "ListadoUsuario");//menu guaflix para usuarios
-                    }
+                    return RedirectToAction("Menu", "ListadoUsuario");//menu guaflix para usuarios
                 }
             }
+
 
             return View() /*usuario y contrasena incorrecta*/;
         }

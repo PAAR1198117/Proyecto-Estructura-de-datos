@@ -41,6 +41,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Genero)
             </td>
+            <td>
+                @Html.ActionLink("Add wachlist", "ListaWachlist", new { id = item.Nombre })
+            </td>
         </tr>
     }
 

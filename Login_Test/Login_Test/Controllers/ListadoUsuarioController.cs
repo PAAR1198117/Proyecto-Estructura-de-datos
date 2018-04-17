@@ -25,10 +25,9 @@ namespace Login_Test.Controllers
             foreach (var item in Data1.Instance.Pelicula)
             {
                 pelicula.Add(item);
-            }
-            pelicula.OrderBy(x => x.Año);
-
-            return View(pelicula);
+            };
+            pelicula.Sort();
+            return View(pelicula.OrderBy(x => x.Año));
         }
         public ActionResult ListaNombre()
         {
@@ -38,26 +37,61 @@ namespace Login_Test.Controllers
             {
                 pelicula.Add(item);
             }
-            pelicula.OrderBy(x => x.Nombre);
+            ;
 
-            return View(pelicula);
+            return View(pelicula.OrderBy(x => x.Nombre));
         }
-        public ActionResult ListaTipo(string tipo)
+        public ActionResult ListaDocumental()
         {
 
             List<Pelicula> pelicula = new List<Pelicula>();
             foreach (var item in Data1.Instance.Pelicula)
             {
-                if (tipo == item.Tipo)
+                if ("Documental" == item.Tipo)
                 {
                     pelicula.Add(item);
                 }
-            }
-            pelicula.OrderBy(x => x.Nombre);
+            };
 
-            return View(pelicula);
+            return View(pelicula.OrderBy(x => x.Nombre));
         }
 
+        public ActionResult ListaPelicula()
+        {
+
+            List<Pelicula> pelicula = new List<Pelicula>();
+            foreach (var item in Data1.Instance.Pelicula)
+            {
+                if ("Pelicula" == item.Tipo)
+                {
+                    pelicula.Add(item);
+                }
+            };
+
+            return View(pelicula.OrderBy(x => x.Nombre));
+        }
+        public ActionResult ListaShow()
+        {
+
+            List<Pelicula> pelicula = new List<Pelicula>();
+            foreach (var item in Data1.Instance.Pelicula)
+            {
+                if ("Show" == item.Tipo)
+                {
+                    pelicula.Add(item);
+                }
+            };
+
+            return View(pelicula.OrderBy(x => x.Nombre));
+        }
+        static List<Pelicula> Fav = new List<Pelicula>();
+
+        public ActionResult ListaWachlist(string id)
+        {
+            var model = Data1.Instance.Pelicula.FirstOrDefault(x => x.Nombre == id);
+            Fav.Add(model);
+            return View(Fav.OrderBy(x => x.Nombre));
+        }
         public ActionResult Menu()
         {
             return View();

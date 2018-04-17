@@ -10,10 +10,9 @@ namespace Login_Test.Models
 { 
     // To parse this JSON data, add NuGet 'Newtonsoft.Json' then do:
     //
-    //    using Lab2_reposicion;
     //
     //    var pelicula = Pelicula.FromJson(jsonString);
-    public partial class Pelicula
+    public partial class Pelicula :IComparable
     {
         [JsonProperty("Nombre")]
         public string Nombre { get; set; }
@@ -26,6 +25,14 @@ namespace Login_Test.Models
 
         [JsonProperty("Genero")]
         public string Genero { get; set; }
+
+
+           public int CompareTo(object obj)
+        {
+            Pelicula compareToObj = (Pelicula)obj;
+            return this.Nombre.CompareTo(compareToObj.Nombre);
+        }
+
     }
 
     public partial class Pelicula

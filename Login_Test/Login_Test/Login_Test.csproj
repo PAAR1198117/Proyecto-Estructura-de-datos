@@ -175,8 +175,11 @@
     <Content Include="Views\Listado\Details.cshtml" />
     <Content Include="Views\ListadoUsuario\ListaFecha.cshtml" />
     <Content Include="Views\ListadoUsuario\ListaNombre.cshtml" />
-    <Content Include="Views\ListadoUsuario\ListaTipo.cshtml" />
     <Content Include="Views\ListadoUsuario\Menu.cshtml" />
+    <Content Include="Views\ListadoUsuario\ListaShow.cshtml" />
+    <Content Include="Views\ListadoUsuario\ListaPelicula.cshtml" />
+    <Content Include="Views\ListadoUsuario\ListaDocumental.cshtml" />
+    <Content Include="Views\ListadoUsuario\ListaWachlist.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
