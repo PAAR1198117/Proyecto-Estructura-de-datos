@@ -144,8 +144,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Clases\BPTree.cs" />
     <Compile Include="Clases\Data.cs" />
     <Compile Include="Clases\Data1.cs" />
+    <Compile Include="Clases\NativeMethods.cs" />
+    <Compile Include="Clases\Node.cs" />
     <Compile Include="Clases\registros.cs" />
     <Compile Include="Controllers\ListadoController.cs" />
     <Compile Include="Controllers\ListadoUsuarioController.cs" />
