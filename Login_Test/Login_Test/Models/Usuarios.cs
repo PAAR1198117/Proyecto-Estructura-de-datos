@@ -37,7 +37,27 @@ namespace Login_Test.Models
                 return this.Nombre.CompareTo(compareToObj.Nombre);
         }
     }
-
+    public partial class users : IComparable
+    {        
+        public int Edad { get; set; }        
+        public string Nombre { get; set; }        
+        public string Apellido { get; set; }       
+        public string Username { get; set; }        
+        public string Password { get; set; }
+        public users(int Edad,string Nombre, string apellido, string username, string password )
+        {
+            this.Edad = Edad;
+            this.Nombre = Nombre;
+            this.Apellido = apellido;
+            this.Username = username;
+            this.Password = password;
+        }
+        public int CompareTo(object obj)
+        {
+            users compareToObj = (users)obj;           
+                return this.Username.CompareTo(compareToObj.Username);           
+        }
+    }
     public partial class Usuarios
     {
         public static Usuarios FromJson(string json) => JsonConvert.DeserializeObject<Usuarios>(json, Login_Test.Models.Converter.Settings);

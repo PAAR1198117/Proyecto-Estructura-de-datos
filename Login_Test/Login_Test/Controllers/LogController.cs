@@ -12,13 +12,16 @@ namespace Login_Test.Controllers
 {
     public class LogController : Controller
     {
+        //arbol de usuarios
+        public BPTree<users> nuser = new BPTree<users>(4, 4, 3);
+
         public registros historial_user = new registros();
         // GET: Log
         public ActionResult Index()
         {
             return View();
         }
-        static BPTree<Usuarios> nuser = new BPTree<Usuarios>(4, 4, 3);
+        
         public ActionResult Sign_In (FormCollection collection)
         {
             try
@@ -33,15 +36,16 @@ namespace Login_Test.Controllers
                         Apellido = collection["Apellido"],
                         Edad = Convert.ToInt16(collection["Edad"]),
                         Username = collection["Username"],
-                        Password = collection["Password"]
-                        nuser.insetNode(to)
+                        Password = collection["Password"]                        
                     };
+
                     Data.Instance.usuarios.Add(model);
 
                     List<Usuarios> JSON_USER = new List<Usuarios>();
                     foreach (var item in Data.Instance.usuarios)
                     {
-                        peliculas toadd = new peliculas(item., item.Value.Tipo, item.Value.Año, item.Value.Genero, 0);
+                        users toadd = new users(item.Edad,item.Nombre,item.Apellido,item.Username, item.Password);
+                        nuser.insetNode(toadd,0);
                     }
 
                     var JSON_USER2 = "";

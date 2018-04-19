@@ -126,7 +126,7 @@ namespace Login_Test.Controllers
         static BPTree<peliculas> gmovie = new BPTree<peliculas>(4, 4, 3);
         static BPTree<peliculas> ndoc = new BPTree<peliculas>(4, 4, 3);
         static BPTree<peliculas> ydoc = new BPTree<peliculas>(4, 4, 3);
-        static BPTree<peliculas> gdoc = new BPTree<peliculas>(4, 4, 3);
+        static BPTree<peliculas> gdoc = new BPTree<peliculas>(4, 4, 3);        
         //fin declaracion de arboles
         public ActionResult Importar()
         {
