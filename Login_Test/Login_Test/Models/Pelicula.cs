@@ -24,17 +24,46 @@ namespace Login_Test.Models
         public long Año { get; set; }
 
         [JsonProperty("Genero")]
-        public string Genero { get; set; }
+        public String Genero { get; set; }
 
-
-           public int CompareTo(object obj)
+        public int CompareTo(object obj)
         {
             Pelicula compareToObj = (Pelicula)obj;
-            return this.Nombre.CompareTo(compareToObj.Nombre);
+            if(obj.GetType() == typeof(string))
+                return this.Nombre.CompareTo(compareToObj.Nombre);
+            if (obj.GetType() == typeof(long))
+                return this.Año.CompareTo(compareToObj.Año);
+            else
+                return this.Genero.CompareTo(compareToObj.Genero);
         }
 
     }
-
+    public class peliculas : IComparable
+    {
+        public string Nombre { get; set; }
+        public string Tipo { get; set; }
+        public long Año { get; set; }
+        public String Genero { get; set; }
+        public int ordenar = 0;
+        public peliculas(string Nombre, string Tipo, long Año, String Genero, int ordenar)
+        {
+            this.Nombre = Nombre;
+            this.Tipo = Tipo;
+            this.Año = Año;
+            this.Genero = Genero;
+            this.ordenar = ordenar;
+        }
+        public int CompareTo(object obj)
+        {
+            Pelicula compareToObj = (Pelicula)obj;
+            if (ordenar==0)
+                return this.Nombre.CompareTo(compareToObj.Nombre);
+            if (ordenar==1)
+                return this.Año.CompareTo(compareToObj.Año);
+            else
+                return this.Genero.CompareTo(compareToObj.Genero);
+        }
+    }
     public partial class Pelicula
     {
         public static Dictionary<string, Pelicula> FromJson(string json) => JsonConvert.DeserializeObject<Dictionary<string, Pelicula>>(json, Login_Test.Models.Converter.Settings);

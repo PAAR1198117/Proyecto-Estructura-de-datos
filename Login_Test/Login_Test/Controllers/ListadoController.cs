@@ -38,14 +38,13 @@ namespace Login_Test.Controllers
             try
             {
                 // TODO: Add insert logic here
-
                 var model = new Pelicula
                 {
                     Nombre = collection["Nombre"],
                     Tipo = collection["Tipo"],
                     Genero = collection["genero"],
                     Año = Convert.ToInt16(collection["lanzamiento"])
-                };
+                };                
                 Data1.Instance.Pelicula.Add(model);
                 return RedirectToAction("Importar");
             }
@@ -76,6 +75,7 @@ namespace Login_Test.Controllers
                     Genero = collection["genero"],
                     Año = Convert.ToInt16(collection["lanzamiento"])
                 };
+                
                 Data1.Instance.Pelicula.Remove(Data1.Instance.Pelicula.First(x => x.Nombre == nombre));
                 Data1.Instance.Pelicula.Add(model);
                 return RedirectToAction("Importar");
@@ -109,7 +109,7 @@ namespace Login_Test.Controllers
                     Tipo = collection["Tipo"],
                     Genero = collection["genero"],
                     Año = Convert.ToInt16(collection["lanzamiento"])
-                };
+                };                
                 return RedirectToAction("Importar");
             }
             catch
@@ -117,13 +117,21 @@ namespace Login_Test.Controllers
                 return View();
             }
         }
-
-
+        //declaracion de arboles
+        static BPTree<peliculas> nshow = new BPTree<peliculas>(4,4,3);
+        static BPTree<peliculas> yshow = new BPTree<peliculas>(4, 4, 3);
+        static BPTree<peliculas> gshow = new BPTree<peliculas>(4, 4, 3);
+        static BPTree<peliculas> nmovie = new BPTree<peliculas>(4, 4, 3);
+        static BPTree<peliculas> ymovie= new BPTree<peliculas>(4, 4, 3);
+        static BPTree<peliculas> gmovie = new BPTree<peliculas>(4, 4, 3);
+        static BPTree<peliculas> ndoc = new BPTree<peliculas>(4, 4, 3);
+        static BPTree<peliculas> ydoc = new BPTree<peliculas>(4, 4, 3);
+        static BPTree<peliculas> gdoc = new BPTree<peliculas>(4, 4, 3);
+        //fin declaracion de arboles
         public ActionResult Importar()
         {
             return View(Data1.Instance.Pelicula);
-        }
-
+        }        
         [HttpPost]
         public ActionResult Importar(HttpPostedFileBase postedFile)
         {
@@ -151,8 +159,27 @@ namespace Login_Test.Controllers
                         Genero = item.Value.Genero,
                         Tipo = item.Value.Tipo
                     });
+                    //aqui tengo que ingresar datos al rbol pero no se como 
+                    peliculas toadd = new peliculas(item.Value.Nombre, item.Value.Tipo, item.Value.Año, item.Value.Genero,0);
+                    if (item.Value.Genero == "Show")
+                    {
+                        nshow.insetNode(toadd, 0);
+                        yshow.insetNode(toadd, 1);
+                        gshow.insetNode(toadd, 2);
+                    }
+                    if (item.Value.Genero == "Pelicula")
+                    {
+                        nmovie.insetNode(toadd, 0);
+                        ymovie.insetNode(toadd, 1);
+                        gmovie.insetNode(toadd, 2);
+                    }
+                    if (item.Value.Genero == "Documental")
+                    {
+                        ndoc.insetNode(toadd, 0);
+                        ydoc.insetNode(toadd, 1);
+                        gdoc.insetNode(toadd, 2);
+                    }
                 }
-
             }
             return RedirectToAction("Importar");
         }

@@ -88,8 +88,11 @@ namespace Login_Test.Controllers
 
         public ActionResult ListaWachlist(string id)
         {
-            var model = Data1.Instance.Pelicula.FirstOrDefault(x => x.Nombre == id);
-            Fav.Add(model);
+            if (id != null)
+            {
+                var model = Data1.Instance.Pelicula.FirstOrDefault(x => x.Nombre == id);
+                Fav.Add(model);
+            }
             return View(Fav.OrderBy(x => x.Nombre));
         }
         public ActionResult Menu()
