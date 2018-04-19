@@ -18,35 +18,38 @@ namespace Login_Test.Controllers
         {
             return View();
         }
-        
+        static BPTree<Usuarios> nuser = new BPTree<Usuarios>(4, 4, 3);
         public ActionResult Sign_In (FormCollection collection)
         {
             try
             {
-                var model = new Usuarios
+                if (collection["Nombre"] != null)
                 {
-                    Nombre = collection["Nombre"],
-                    Apellido = collection["Apellido"],
-                    Edad = Convert.ToInt16(collection["Edad"]),
-                    Username = collection["Username"],
-                    Password = collection["Password"]
 
-                };
-                Data.Instance.usuarios.Add(model);
-               
-                List<Usuarios> JSON_USER = new List<Usuarios>();
-                foreach (var item in Data.Instance.usuarios)
-                {
-                    if(item.Nombre!=null)
-                        JSON_USER.Add(item);
+
+                    var model = new Usuarios
+                    {
+                        Nombre = collection["Nombre"],
+                        Apellido = collection["Apellido"],
+                        Edad = Convert.ToInt16(collection["Edad"]),
+                        Username = collection["Username"],
+                        Password = collection["Password"]
+                        nuser.insetNode(to)
+                    };
+                    Data.Instance.usuarios.Add(model);
+
+                    List<Usuarios> JSON_USER = new List<Usuarios>();
+                    foreach (var item in Data.Instance.usuarios)
+                    {
+                        peliculas toadd = new peliculas(item., item.Value.Tipo, item.Value.Año, item.Value.Genero, 0);
+                    }
+
+                    var JSON_USER2 = "";
+                    JSON_USER2 = JsonConvert.SerializeObject(Data.Instance.usuarios);
+
+                    historial_user.escribirArchivo(JSON_USER2);
+
                 }
-
-                var JSON_USER2 = "";
-                JSON_USER2 = JsonConvert.SerializeObject(Data.Instance.usuarios);
-
-                historial_user.escribirArchivo(JSON_USER2);
-
-
 
 
                 return View();

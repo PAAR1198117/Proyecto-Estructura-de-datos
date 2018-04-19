@@ -9,7 +9,7 @@ using System.Web;
 
 namespace Login_Test.Models
 {
-    public partial class Usuarios
+    public partial class Usuarios : IComparable
     {
         [JsonProperty("Edad")]
         public int Edad { get; set; }
@@ -25,6 +25,17 @@ namespace Login_Test.Models
 
         [JsonProperty("Password")]
         public string Password { get; set; }
+
+        public int CompareTo(object obj)
+        {
+            Usuarios compareToObj = (Usuarios)obj;
+            if (obj.GetType() == typeof(string))
+                return this.Username.CompareTo(compareToObj.Username);
+            if (obj.GetType() == typeof(long))
+                return this.Password.CompareTo(compareToObj.Password);
+            else
+                return this.Nombre.CompareTo(compareToObj.Nombre);
+        }
     }
 
     public partial class Usuarios

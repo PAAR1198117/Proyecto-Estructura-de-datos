@@ -159,7 +159,7 @@ namespace Login_Test.Controllers
                         Genero = item.Value.Genero,
                         Tipo = item.Value.Tipo
                     });
-                    //aqui tengo que ingresar datos al rbol pero no se como 
+                    //aqui tengo que ingresar datos al arbol pero no se como 
                     peliculas toadd = new peliculas(item.Value.Nombre, item.Value.Tipo, item.Value.Año, item.Value.Genero,0);
                     if (item.Value.Tipo == "Show")
                     {
