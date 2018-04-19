@@ -33,11 +33,12 @@ namespace Login_Test.Controllers
 
                 };
                 Data.Instance.usuarios.Add(model);
-                var JSON_USER = "";
-
+               
+                List<Usuarios> JSON_USER = new List<Usuarios>();
                 foreach (var item in Data.Instance.usuarios)
                 {
-                    JSON_USER += item;
+                    if(item.Nombre!=null)
+                        JSON_USER.Add(item);
                 }
 
                 var JSON_USER2 = "";
