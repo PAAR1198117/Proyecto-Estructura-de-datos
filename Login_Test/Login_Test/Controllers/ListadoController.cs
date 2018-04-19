@@ -161,19 +161,19 @@ namespace Login_Test.Controllers
                     });
                     //aqui tengo que ingresar datos al rbol pero no se como 
                     peliculas toadd = new peliculas(item.Value.Nombre, item.Value.Tipo, item.Value.Año, item.Value.Genero,0);
-                    if (item.Value.Genero == "Show")
+                    if (item.Value.Tipo == "Show")
                     {
                         nshow.insetNode(toadd, 0);
                         yshow.insetNode(toadd, 1);
                         gshow.insetNode(toadd, 2);
                     }
-                    if (item.Value.Genero == "Pelicula")
+                    if (item.Value.Tipo == "Pelicula")
                     {
                         nmovie.insetNode(toadd, 0);
                         ymovie.insetNode(toadd, 1);
                         gmovie.insetNode(toadd, 2);
                     }
-                    if (item.Value.Genero == "Documental")
+                    if (item.Value.Tipo == "Documental")
                     {
                         ndoc.insetNode(toadd, 0);
                         ydoc.insetNode(toadd, 1);

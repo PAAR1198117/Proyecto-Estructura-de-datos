@@ -55,7 +55,7 @@ namespace Login_Test.Models
         }
         public int CompareTo(object obj)
         {
-            Pelicula compareToObj = (Pelicula)obj;
+            peliculas compareToObj = (peliculas)obj;
             if (ordenar==0)
                 return this.Nombre.CompareTo(compareToObj.Nombre);
             if (ordenar==1)
